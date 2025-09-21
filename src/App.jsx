@@ -6,20 +6,74 @@ import { Footer } from './components/Footer.jsx'
 import { db } from './data/db.js'
 
 
-
 function App() {
-
-  // 1. Definir un estado para las guitarras
   const [guitars, setGuitars] = useState([])
+  const [cart, setCart] = useState([])
+
+  const MAX_ITEMS = 10
+  const MIN_ITEMS = 1
 
   useEffect(() => {
-    // 2. Actualizar el estado de las guitarras
     setGuitars(db)
   }, [])
 
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart])
+
+  const handleAddToCart = (item) => {    //la inmutabilidad en react sirve para que react detecte los cambios en los estados y vuelva a renderizar los componentes
+    const itemExists = cart.findIndex(cartItem => cartItem.id === item.id)
+
+    if (itemExists >= 0) {
+      const updatedCart = [...cart]
+      updatedCart[itemExists].quantity++
+      setCart(updatedCart)
+    } else {
+      item.quantity = 1
+      setCart([...cart, item])
+    }
+
+  }
+
+  const handleRemoveFromCart = (id) => {
+    setCart(prevCart => prevCart.filter(item => item.id !== id))
+  }
+
+  const handleIncreaseQuantity = (id) => {
+    const updatedCart = cart.map(item => {
+      if (item.id === id && item.quantity < MAX_ITEMS) {
+        return { ...item, quantity: item.quantity + 1 }
+      }
+      return item
+    })
+    setCart(updatedCart)
+  }
+
+  const handleDecreaseQuantity = (id) => {
+    const updatedCart = cart.map(item => {
+      if (item.id === id && item.quantity > MIN_ITEMS) {
+        return { ...item, quantity: item.quantity - 1 }
+      }
+      return item
+    })
+    setCart(updatedCart)
+  }
+
+  const clearCart = () => {
+    setCart([])
+  }
+
+
+
   return (
     <>
-      <Header />
+      <Header
+        cart={cart}
+        handleRemoveFromCart={handleRemoveFromCart}
+        handleIncreaseQuantity={handleIncreaseQuantity}
+        handleDecreaseQuantity={handleDecreaseQuantity}
+        clearCart={clearCart}
+      />
 
       <main className="container-xl mt-5">
         <h2 className="text-center">Nuestra Colección</h2>
@@ -29,7 +83,9 @@ function App() {
             <Guitar
               key={guitar.id}
               guitar={guitar}
-
+              setCart={setCart}
+              cart={cart}
+              handleAddToCart={handleAddToCart}
             />
           ))}
         </div>

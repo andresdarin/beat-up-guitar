@@ -1,12 +1,11 @@
 import React from 'react'
 
-export const Guitar = ({ guitar }) => {
+export const Guitar = ({ guitar, handleAddToCart }) => {
 
     const { id, name, description, image, price } = guitar
 
-    const handleClick = (id) => {
-        console.log('Agregando al carrito', id)
-    }
+
+
 
     return (
         <div className="col-md-6 col-lg-4 my-4 row align-items-center">
@@ -20,7 +19,7 @@ export const Guitar = ({ guitar }) => {
                 <button
                     type="button"
                     className="btn btn-dark w-100"
-                    onClick={() => handleClick(guitar)}
+                    onClick={() => handleAddToCart(guitar)}
                 >Agregar al Carrito</button>
             </div>
         </div>
