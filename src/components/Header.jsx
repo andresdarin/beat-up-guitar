@@ -1,5 +1,3 @@
-import { useCart } from "../hooks/useCart";
-
 export default function Header({ cart, handleRemoveFromCart, handleIncreaseQuantity, handleDecreaseQuantity, clearCart, isEmpty, cartTotal }) {
 
     return (

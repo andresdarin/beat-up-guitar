@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Guitar = ({ guitar, handleAddToCart }) => {
 
-    const { id, name, description, image, price } = guitar
+    const { name, description, image, price } = guitar
 
 
 
