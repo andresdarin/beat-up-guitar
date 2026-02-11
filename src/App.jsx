@@ -1,6 +1,7 @@
-
-import { Guitar } from './components/Guitar.jsx'
 import ModernHeader from './components/ModernHeader.jsx'
+import Categories from './components/Categories.jsx'
+import Featured from './components/Featured.jsx'
+import Shop from './components/Shop.jsx'
 import { Footer } from './components/Footer.jsx'
 import { useCart } from './hooks/useCart.js'
 
@@ -10,6 +11,7 @@ function App() {
 
   return (
     <>
+      {/* Section 1: Header */}
       <ModernHeader
         cart={cart}
         handleRemoveFromCart={handleRemoveFromCart}
@@ -22,22 +24,19 @@ function App() {
         handleAddToCart={handleAddToCart}
       />
 
-      <main className="container-xl mt-5">
-        <h2 className="text-center">Nuestra Colección</h2>
+      {/* Section 2: Categories */}
+      <Categories />
 
-        <div className="row mt-5">
-          {guitars.map(guitar => (
-            <Guitar
-              key={guitar.id}
-              guitar={guitar}
-              cart={cart}
-              handleAddToCart={handleAddToCart}
-            />
-          ))}
-        </div>
-      </main>
+      {/* Section 3: Featured (LOUD IS BETTER) */}
+      <Featured />
 
+      {/* Section 4: The Shop (Product Grid) */}
+      <Shop
+        guitars={guitars}
+        handleAddToCart={handleAddToCart}
+      />
 
+      {/* Section 5: Footer */}
       <Footer />
 
     </>

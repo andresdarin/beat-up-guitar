@@ -1,0 +1,121 @@
+.shop-section {
+    padding: 8rem 2rem;
+    background-color: #fff;
+    width: 100%;
+}
+
+.container-shop {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.shop-title {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 5rem;
+    text-align: center;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 4rem;
+}
+
+.product-card {
+    position: relative;
+    background: transparent;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+.product-image-wrapper {
+    height: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.product-image {
+    max-height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1)); /* Subtle shadow */
+    transition: filter 0.3s ease;
+}
+
+.product-card:hover .product-image {
+    filter: drop-shadow(0 30px 40px rgba(0,0,0,0.2));
+}
+
+.product-details {
+    text-align: center;
+}
+
+.product-name {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #000;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.product-price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--bs-blue, #0d6efd);
+}
+
+.add-to-cart-circle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    opacity: 0; /* Hidden by default */
+    transform: scale(0.8);
+}
+
+.product-card:hover .add-to-cart-circle {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.add-to-cart-circle:hover {
+    background-color: var(--bs-blue, #0d6efd);
+    color: #fff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .product-grid {
+        gap: 2rem;
+    }
+
+    .add-to-cart-circle {
+        opacity: 1; /* Always visible on mobile */
+        transform: scale(1);
+    }
+}

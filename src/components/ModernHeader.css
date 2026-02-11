@@ -1,221 +1,169 @@
-.modern-header {
+.brutalist-header {
   display: flex;
   min-height: 100vh;
   position: relative;
   overflow: hidden;
   font-family: 'Outfit', sans-serif;
-  background-color: #000; /* Fallback */
+  background-color: #000;
 }
 
-.left-half {
+.header-left {
   width: 50%;
   background-color: #fff;
+  color: #000;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 4rem;
   position: relative;
   z-index: 1;
 }
 
-.right-half {
+.header-right {
   width: 50%;
   background-color: #000;
   color: #fff;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 4rem 2rem 4rem 18rem; /* Increased left padding to avoid image overlap */
+  align-items: flex-end;
+  padding: 4rem;
   position: relative;
   z-index: 1;
-  /* Geometric pattern */
-  background-image:
-    radial-gradient(circle at 20% 20%, rgba(233, 148, 1, 0.1) 0%, transparent 20%),
-    linear-gradient(45deg, rgba(233, 148, 1, 0.05) 25%, transparent 25%, transparent 50%, rgba(233, 148, 1, 0.05) 50%, rgba(233, 148, 1, 0.05) 75%, transparent 75%, transparent);
-  background-size: 100% 100%, 40px 40px;
 }
 
-.nav-links {
-  list-style: none;
-  padding: 0;
+/* Navigation */
+.header-nav {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
   display: flex;
   gap: 2rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 0.9rem;
-  margin-left: 4rem; /* Offset for slider area */
 }
 
-.nav-links li a {
+.nav-item {
   color: #000;
-  text-decoration: none;
-  transition: color 0.3s;
-  cursor: pointer;
-}
-
-.nav-links li a:hover {
-  color: #e99401;
-}
-
-/* Vertical Slider Control */
-.slider-control {
-  position: absolute;
-  left: 2rem;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.slider-number {
-  font-size: 3rem;
   font-weight: 900;
-  color: #000;
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
+  text-transform: uppercase;
+  font-size: 1rem;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.3s;
 }
 
-.slider-arrow {
-  cursor: pointer;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #000;
-  transition: color 0.3s;
-  padding: 0;
-}
-
-.slider-arrow:hover {
-  color: #e99401;
+.nav-item:hover {
+  border-color: var(--bs-blue, #0d6efd);
 }
 
 /* Typography */
-.guitar-title {
-  font-size: 5rem;
+.brand-title {
+  font-size: 8rem;
   font-weight: 900;
+  line-height: 0.8;
   text-transform: uppercase;
-  line-height: 0.9;
-  margin-bottom: 0.5rem;
-  position: relative;
-  z-index: 2;
-  color: #fff;
-}
-
-.guitar-subtitle {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #e99401; /* Accent color */
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-}
-
-.guitar-description {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #ccc;
-  margin-bottom: 2rem;
-  max-width: 450px;
-}
-
-.price-tag {
-  font-size: 3.5rem;
-  font-weight: 900;
-  color: #fff;
-  margin-bottom: 1.5rem;
-}
-
-.buy-btn {
-  background-color: #e99401;
+  letter-spacing: -2px;
   color: #000;
-  padding: 1.2rem 3.5rem;
+  margin: 0;
+}
+
+.brand-subtitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #666;
+  margin-top: 1rem;
+  text-transform: uppercase;
+}
+
+.product-title {
+  font-size: 6rem;
+  font-weight: 900;
+  line-height: 0.9;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+  text-align: right;
+}
+
+.product-price {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--bs-blue, #0d6efd);
+  margin-top: 1rem;
+  text-align: right;
+}
+
+/* Buttons */
+.cart-btn {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 0.8rem 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+}
+
+.cart-btn:hover {
+  background: #fff;
+  color: #000;
+}
+
+.buy-now-btn {
+  background: var(--bs-blue, #0d6efd);
+  color: #fff;
   border: none;
+  padding: 1.2rem 3rem;
   font-weight: 900;
   text-transform: uppercase;
   font-size: 1.2rem;
+  margin-top: 2rem;
   cursor: pointer;
-  transition: transform 0.2s, background-color 0.2s, color 0.2s;
-  display: inline-block;
+  transition: transform 0.2s, background-color 0.2s;
 }
 
-.buy-btn:hover {
-  background-color: #fff;
-  color: #000;
+.buy-now-btn:hover {
+  background: #fff;
+  color: var(--bs-blue, #0d6efd);
   transform: scale(1.05);
 }
 
-/* Center Image */
-.center-image-container {
+/* Image */
+.header-image-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 10;
-  height: 75vh;
-  pointer-events: none; /* Allow clicks to pass through around the image */
+  height: 85vh;
+  pointer-events: none;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.center-image {
+.featured-guitar-image {
   height: 100%;
   width: auto;
   object-fit: contain;
-  filter: drop-shadow(0 30px 40px rgba(0,0,0,0.6));
-  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+  filter: drop-shadow(0 30px 40px rgba(0,0,0,0.6)) hue-rotate(180deg) saturate(1.2); /* Make orange guitar blue */
+  transition: transform 0.5s ease-out;
 }
 
-/* Social Links */
-.social-links {
-  position: absolute;
-  bottom: 2rem;
-  right: 2rem;
-  display: flex;
-  gap: 1.5rem;
-}
-
-.social-link {
-  color: #fff;
-  font-size: 1.2rem;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.social-link:hover {
-  color: #e99401;
-}
-
-/* Cart Styles */
+/* Cart Dropdown */
 .cart-container {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
+  position: relative; /* Keep it relative for dropdown positioning context */
   z-index: 20;
-}
-
-.cart-icon-btn {
-  background: none;
-  border: none;
-  position: relative;
-  cursor: pointer;
-  padding: 0.5rem;
-}
-
-.cart-icon-img {
-  width: 35px;
-  filter: invert(1); /* White icon on black bg */
-  transition: transform 0.2s;
-}
-
-.cart-icon-btn:hover .cart-icon-img {
-  transform: scale(1.1);
 }
 
 .cart-dropdown {
   position: absolute;
-  top: 100%;
+  top: 4rem; /* Below the cart button */
   right: 0;
   width: 400px;
   background: white;
@@ -223,156 +171,64 @@
   padding: 1.5rem;
   box-shadow: 0 15px 30px rgba(0,0,0,0.3);
   display: none;
-  border-radius: 4px;
+  border: 2px solid #000;
   z-index: 100;
 }
 
-.cart-container:hover .cart-dropdown {
+.cart-container:hover .cart-dropdown,
+.cart-btn:hover + .cart-dropdown {
   display: block;
 }
 
-/* Cart Table Styling inside dropdown */
-.cart-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 1rem;
-}
-
-.cart-table th {
-  text-align: left;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 0.5rem;
-  font-size: 0.9rem;
-  text-transform: uppercase;
-}
-
-.cart-table td {
-  padding: 1rem 0;
-  border-bottom: 1px solid #eee;
-  vertical-align: middle;
-}
-
-.cart-img-thumb {
-  width: 50px;
-  height: auto;
-}
-
-.cart-quantity-controls {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.cart-btn-small {
-  background: #000;
-  color: #fff;
-  border: none;
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-.cart-remove-btn {
-  background: #dc3545;
-  color: #fff;
-  border: none;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  font-size: 0.8rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cart-total {
-  text-align: right;
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-top: 1rem;
-}
-
-.cart-clear-btn {
-  width: 100%;
-  background: #000;
-  color: #fff;
-  border: none;
-  padding: 0.8rem;
-  text-transform: uppercase;
-  font-weight: bold;
-  margin-top: 1rem;
-  cursor: pointer;
-  transition: background 0.2s;
-}
-
-.cart-clear-btn:hover {
-  background: #333;
-}
-
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 992px) {
-  .modern-header {
+  .brutalist-header {
     flex-direction: column;
-    min-height: auto;
   }
 
-  .left-half, .right-half {
+  .header-left, .header-right {
     width: 100%;
     padding: 2rem;
-  }
-
-  .center-image-container {
-    position: relative;
-    left: auto;
-    top: auto;
-    transform: none;
-    height: 50vh;
-    margin: 2rem auto;
-    text-align: center;
-    z-index: 5;
-  }
-
-  .center-image {
-    height: 100%;
-  }
-
-  .nav-links {
-    margin-left: 0;
-    justify-content: center;
-    margin-bottom: 2rem;
-  }
-
-  .slider-control {
-    display: none;
-  }
-
-  .right-half {
-    padding-left: 2rem;
     align-items: center;
     text-align: center;
   }
 
-  .guitar-title {
+  .header-image-container {
+    position: relative;
+    height: 50vh;
+    transform: none;
+    top: auto;
+    left: auto;
+    margin: 2rem 0;
+    order: 2; /* Move image between left and right on mobile if we used flex-order, but here structure is fixed. */
+  }
+
+  /* To place image between text blocks on mobile, we might need to adjust HTML structure or just accept overlap */
+  /* Let's just make the image smaller and centered */
+
+  .brand-title {
+    font-size: 4rem;
+  }
+
+  .product-title {
     font-size: 3rem;
+    text-align: center;
   }
 
-  .guitar-description {
-    margin: 0 auto 2rem auto;
+  .product-price {
+    text-align: center;
   }
 
-  .cart-container {
-    /* Reposition cart for mobile if needed, usually top right is fine */
-    top: 1rem;
-    right: 1rem;
+  .cart-btn {
+    position: static;
+    margin-bottom: 2rem;
+    border-color: #fff;
+    color: #fff;
   }
 
-  .cart-dropdown {
-    width: 300px;
+  .header-nav {
+    position: static;
+    margin-bottom: 2rem;
+    justify-content: center;
   }
 }
