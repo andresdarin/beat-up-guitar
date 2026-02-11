@@ -83,7 +83,8 @@
   --bs-gray-700: #495057;
   --bs-gray-800: #343a40;
   --bs-gray-900: #212529;
-  --bs-primary: #e99401;
+  /* Updated to Electric Blue */
+  --bs-primary: #0d6efd;
   --bs-secondary: #6c757d;
   --bs-success: #198754;
   --bs-info: #0dcaf0;
@@ -91,7 +92,8 @@
   --bs-danger: #dc3545;
   --bs-light: #f8f9fa;
   --bs-dark: #262626;
-  --bs-primary-rgb: 233, 148, 1;
+  /* Updated Primary RGB */
+  --bs-primary-rgb: 13, 110, 253;
   --bs-secondary-rgb: 108, 117, 125;
   --bs-success-rgb: 25, 135, 84;
   --bs-info-rgb: 13, 202, 240;
@@ -159,7 +161,7 @@ body {
   font-family: "Outfit", sans-serif;
   font-weight: 900;
   line-height: 1.2;
-  color: #e99401;
+  color: var(--bs-primary); /* Use Primary Blue */
 }
 
 h1, .h1 {
@@ -740,40 +742,4 @@ button:not(:disabled),
     font-size: 1.5rem !important;
   }
 }
-@keyframes animarImagen {
-  0% {
-    opacity: 0;
-    transform: translateX(-10rem);
-  }
-  50% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-.header {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("img/header.jpg");
-  /** TODO: Eliminar la sig linea **/
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("img/header.jpg");
-  background-position: 50%;
-  background-size: cover;
-  position: relative;
-}
-.header .header-guitarra {
-  display: none;
-}
-@media (min-width: 992px) {
-  .header .header-guitarra {
-    display: block;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    animation-duration: 1s;
-    animation-delay: 0s;
-    animation-timing-function: ease-in-out;
-    animation-name: animarImagen;
-    z-index: 10;
-  }
-}
+/* REMOVED OLD HEADER STYLES TO AVOID CONFLICTS */
