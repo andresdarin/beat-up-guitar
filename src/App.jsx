@@ -1,6 +1,6 @@
 
 import { Guitar } from './components/Guitar.jsx'
-import Header from './components/Header.jsx'
+import ModernHeader from './components/ModernHeader.jsx'
 import { Footer } from './components/Footer.jsx'
 import { useCart } from './hooks/useCart.js'
 
@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-      <Header
+      <ModernHeader
         cart={cart}
         handleRemoveFromCart={handleRemoveFromCart}
         handleIncreaseQuantity={handleIncreaseQuantity}
@@ -18,6 +18,8 @@ function App() {
         clearCart={clearCart}
         isEmpty={isEmpty}
         cartTotal={cartTotal}
+        guitars={guitars}
+        handleAddToCart={handleAddToCart}
       />
 
       <main className="container-xl mt-5">
